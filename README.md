@@ -14,6 +14,6 @@ Then the Gazebo world and Navigation Stack were customized.
 #### Presentation:
 The presentation directory contains
 1) Indoor Mobile Robot Navigation_ ROS navigation stack along custom map.pptx
-   (URL: https://docs.google.com/presentation/d/1Umx4A0LdNn39PBm-OzmdyZpQ1hi3uhUzjIAmb1tD_QE/edit?usp=sharing)
+   (URL: https://docs.google.com/presentation/d/1Umx4A0LdNn39PBm-OzmdyZpQ1hi3uhUzjIAmb1tD_QE)
 2) TEB and DWA fault in avoiding wall and dynamic obstacle.
 3) Capture images of gazebo world, Elite Floor.
