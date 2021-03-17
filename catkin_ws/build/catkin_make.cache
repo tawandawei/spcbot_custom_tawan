@@ -1,0 +1,2 @@
+spcbot/spcbot_description:spcbot/spcbot_gazebo:spcbot/spcbot_navigation:spcbot/spcbot_slam:spcbot/tawanbot_gazebo
+-DCATKIN_DEVEL_PREFIX=/home/mac/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/mac/catkin_ws/install -G Unix Makefiles

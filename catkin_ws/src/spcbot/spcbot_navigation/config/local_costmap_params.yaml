@@ -1,0 +1,21 @@
+local_costmap:
+  global_frame: odom
+  robot_base_frame: chassis
+
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  transform_tolerance: 0.5
+  
+  static_map: false
+  rolling_window: true
+  width: 6
+  height: 6
+  resolution:  0.020000
+  always_send_full_costmap: true
+
+  observation_sources: scan
+
+  plugins:
+  - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+  - {name: inflater_layer, type: "costmap_2d::InflationLayer"}
+

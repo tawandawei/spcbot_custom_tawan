@@ -1,0 +1,64 @@
+obstacle_range: 3.0
+raytrace_range: 3.5
+
+footprint: [[-0.105, -0.105], [-0.105, 0.105], [0.041, 0.105], [0.041, -0.105]] # depend on current robot bound and size
+robot_radius: 0.105
+
+inflation_radius: 1    # increase to 1 from 0.25
+cost_scaling_factor: 10.0  # reduce to 3
+
+map_type: costmap
+#observation_sources: laser_scan
+#laser_scan: {sensor_frame: sensor_laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+obstacle_layer:
+# observation_sources: laser_scan_sensor
+# observation_sources: scan
+# laser_scan_sensor: {sensor_frame: sensor_laser,  data_type: LaserScan,  topic: /scan, marking: true, clearing: true, max_obstacle_height: 3, min_obstacle_height: -3, inf_is_valid: true, obstacle_range: 2.5, combination_method: 0, raytrace_range: 3}
+  enabled:              true
+  max_obstacle_height:  1.5
+  origin_z:             0.0
+  z_resolution:         0.2
+  z_voxels:             2
+  unknown_threshold:    15
+  mark_threshold:       0
+  combination_method:   1
+  track_unknown_space:  true    #true needed for disabling global path planning through unknown space
+  obstacle_range: 3.0  #1 changed to 0.7
+  raytrace_range: 3.5 #3 changed to 
+  origin_z: 0.0
+  z_resolution: 0.2
+  z_voxels: 10
+  publish_voxel_map: false
+  observation_sources:  scan
+    
+  scan:
+    sensor_frame: sensor_laser
+    data_type: LaserScan
+    topic: /scan
+    marking: true
+    clearing: true
+    min_obstacle_height: 0.1
+    max_obstacle_height: 1.5
+
+inflation_layer:
+  enabled: true
+  cost_scaling_factor: 10.0  # exponential rate at which the obstacle cost drops off (default: 10)
+  inflation_radius: 0.25 # max. distance from an obstacle at which costs are incurred for planning paths.
+
+static_layer:
+  enabled: true
+  controller_patience: 2.0
+
+NavfnROS:
+  allow_unknown: true
+
+recovery_behaviors: [
+  {name: conservative_clear, type: clear_costmap_recovery/ClearCostmapRecovery},
+  {name: aggressive_clear, type: clear_costmap_recovery/ClearCostmapRecovery}
+]
+
+conservative_clear: 
+  reset_distance: 3.00
+aggressive_clear:
+  reset_distance: 1.84
